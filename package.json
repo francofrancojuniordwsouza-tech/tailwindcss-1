@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "tailwindcss -i ./css.css -o ./dist/styles.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "init": "^0.1.2",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3"
+  }
+}
