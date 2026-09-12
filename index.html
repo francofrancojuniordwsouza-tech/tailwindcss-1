@@ -1,99 +1,472 @@
 <!doctype html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Restaurante Sabor & Arte</title>
-  <link href="/dist/styles.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 font-sans">
- 
-  <!-- Navbar -->
-    <nav class="bg-red-600 text-white p-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold ">🍽️ Sabor & Arte</h1>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Restaurante Sabor & Arte, gastronomia refinada com sabores autênticos e ambiente acolhedor."
+    />
+    <title>Sabor & Arte | Restaurante</title>
+    <link href="/dist/styles.css" rel="stylesheet" />
+  </head>
+  <body class="bg-stone-100 text-stone-800 antialiased">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-stone-900/80 backdrop-blur-md">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#home" class="flex items-center gap-3" aria-label="Ir para a página inicial">
+          <div class="flex h-11 w-11 items-center justify-center rounded-full bg-amber-400 text-lg font-black text-stone-900 shadow-lg shadow-amber-500/30">
+            S&A
+          </div>
+          <div>
+            <p class="text-lg font-bold tracking-wide text-white">Sabor & Arte</p>
+            <p class="text-[10px] uppercase tracking-[0.28em] text-stone-300">Restaurante</p>
+          </div>
+        </a>
 
-       
-      <!---Links(desktop e mobile)--->
-      <ul id="menuLinks" class="hidden md:flex gap-6 flex-col md:flex-row absolute md:static bg-red-600 md:bg-transparent left-0 top-16 w-full md:w-auto p-4 md:p-0"  >
-        <li><a href="#home" class="hover:text-yellow-300">Início</a></li>
-        <li><a href="#menu" class="hover:text-yellow-300">Cardápio</a></li>
-        <li><a href="#sobre" class="hover:text-yellow-300">Sobre</a></li>
-        <li><a href="#contato" class="hover:text-yellow-300">Contato</a></li>
-      </ul>
-    </nav>
-  
-    <!-- Hero -->
-    <section id="home" class="h-screen flex flex-col justify-center items-center bg-cover bg-center" style="background-image: url(img/pexels-antonio-lorenzana-bermejo-353570724-18090414.jpg);">
-      <h2 class="text-5xl text-white font-bold mb-4">Bem-vindo ao Sabor & Arte</h2>
-      <p class="text-xl text-gray-400 mb-6">Experiência gastronômica inesquecível</p>
-      <a href="#menu" class="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500">Ver Cardápio</a>
-       <br><br>
-      <button id="btnReserva" class="bg-blue-300 text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-400 ml-7">Reservar Mesa</button>
-    </section>
-  
-    <!-- Cardápio -->
-    <section id="menu" class="p-10 bg-white">
-      <h3 class="text-3xl font-bold text-center mb-8">Nosso Cardápio</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-gray-100 p-6 rounded-lg shadow hover:scale-105 transition">
-          <img src="img/pexels-aabouden-yassir-2163228451-38795702.jpg" alt="Pizza" class="rounded-lg mb-4">
-          <h4 class="text-xl font-semibold">Pizza Especial</h4>
-          <p class="text-gray-600">Massa artesanal com ingredientes frescos.</p>
-          <span class="block mt-2 text-red-600 font-bold">R$ 39,90</span>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow hover:scale-105 transition">
-          <img src="img/pexels-nour-alhoda-2151678059-32535025.jpg" alt="Massa" class="rounded-lg mb-4">
-          <h4 class="text-xl font-semibold">Massa Italiana</h4>
-          <p class="text-gray-600">Molho caseiro e temperos especiais.</p>
-          <span class="block mt-2 text-red-600 font-bold">R$ 29,90</span>
-        </div>
-        <div class="bg-gray-100 p-6 rounded-lg shadow hover:scale-105 transition">
-          <img src="img/pexels-aleson-padilha-945919991-33323274.jpg" alt="Salada" class="rounded-lg mb-4">
-          <h4 class="text-xl font-semibold">Salada Gourmet</h4>
-          <p class="text-gray-600">Leve, saudável e deliciosa.</p>
-          <span class="block mt-2 text-red-600 font-bold">R$ 24,90</span>
-        </div>
+        <button
+          id="menuToggle"
+          type="button"
+          class="inline-flex items-center justify-center rounded-md border border-white/10 p-2 text-white transition hover:border-amber-400 hover:text-amber-300 md:hidden"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <ul id="menuLinks" class="hidden items-center gap-6 text-sm font-medium text-stone-200 md:flex">
+          <li><a href="#home" class="transition hover:text-amber-300">Início</a></li>
+          <li><a href="./cardapio.html" class="transition hover:text-amber-300">Cardápio</a></li>
+          <li><a href="./sobre.html" class="transition hover:text-amber-300">Sobre</a></li>
+          <li><a href="./contato.html" class="transition hover:text-amber-300">Contato</a></li>
+          <li><a href="./reserva.html" class="transition hover:text-amber-300">Reserva</a></li>
+          <li><a href="./pedido.html" class="transition hover:text-amber-300">Pedido</a></li>
+        </ul>
+
+        <button
+          id="btnReservaHeader"
+          type="button"
+          class="hidden rounded-full bg-amber-400 px-5 py-2.5 text-sm font-semibold text-stone-900 shadow-lg shadow-amber-500/30 transition hover:bg-amber-300 md:inline-flex"
+        >
+          Reservar mesa
+        </button>
+      </nav>
+
+      <div id="mobileMenu" class="hidden border-t border-white/10 bg-stone-900 md:hidden">
+        <ul class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 text-sm font-medium text-stone-200">
+          <li><a href="#home" class="block py-1 transition hover:text-amber-300">Início</a></li>
+          <li><a href="./cardapio.html" class="block py-1 transition hover:text-amber-300">Cardápio</a></li>
+          <li><a href="./sobre.html" class="block py-1 transition hover:text-amber-300">Sobre</a></li>
+          <li><a href="./contato.html" class="block py-1 transition hover:text-amber-300">Contato</a></li>
+          <li><a href="./reserva.html" class="block py-1 transition hover:text-amber-300">Reserva</a></li>
+          <li><a href="./pedido.html" class="block py-1 transition hover:text-amber-300">Pedido</a></li>
+        </ul>
       </div>
-    </section>
-  
-    <!-- Sobre -->
-    <section id="sobre" class="p-10 bg-gray-50 text-center">
-      <h3 class="text-3xl font-bold mb-4">Sobre Nós</h3>
-      <p class="text-gray-700 max-w-2xl mx-auto">
-        O Restaurante Sabor & Arte nasceu da paixão pela boa comida e pelo atendimento acolhedor.
-        Nossa missão é proporcionar momentos únicos através da gastronomia.
-      </p>
-    </section>
-  
-    <!-- Contato -->
-    <section id="contato" class="p-10 bg-white text-center">
-      <h3 class="text-3xl font-bold mb-4">Contato</h3>
-      <form class="max-w-md mx-auto flex flex-col gap-4">
-        <input type="text" placeholder="Seu Nome" class="p-3 border rounded-lg">
-        <input type="email" placeholder="Seu Email" class="p-3 border rounded-lg">
-        <textarea placeholder="Sua Mensagem" class="p-3 border rounded-lg"></textarea>
-        <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">Enviar</button>
-      </form>
-    </section>
-  
-    <!-- Footer -->
-    <footer class="bg-red-600 text-white text-center p-4">
-      <p>&copy; 2026 Restaurante Sabor & Arte - Todos os direitos reservados</p>
+    </header>
+
+    <main>
+      <section id="home" class="relative isolate overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: linear-gradient(rgba(15,23,42,0.7), rgba(15,23,42,0.78)), url('img/pexels-antonio-lorenzana-bermejo-353570724-18090414.jpg');"></div>
+        <div class="relative mx-auto flex min-h-[86vh] max-w-6xl items-center px-4 py-20 sm:px-6 lg:px-8">
+          <div class="max-w-2xl">
+            <span class="inline-flex items-center rounded-full border border-amber-300/60 bg-amber-300/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">
+              Experiência gastronômica
+            </span>
+            <h1 class="mt-6 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Sabores que transformam cada refeição em lembrança.
+            </h1>
+            <p class="mt-5 max-w-xl text-lg text-stone-200 sm:text-xl">
+              Um refúgio moderno para quem aprecia cozinha refinada, ambiente acolhedor e atendimento impecável.
+            </p>
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="#menu" class="inline-flex items-center justify-center rounded-full bg-amber-400 px-7 py-3.5 text-base font-bold text-stone-900 transition hover:bg-amber-300">
+                Ver cardápio
+              </a>
+              <button id="btnReserva" type="button" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-base font-bold text-white transition hover:border-amber-300 hover:text-amber-200">
+                Reservar mesa
+              </button>
+            </div>
+
+            <div class="mt-10 grid max-w-lg grid-cols-3 gap-4 text-left text-white">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm">
+                <p class="text-2xl font-black text-amber-300">15+</p>
+                <p class="mt-1 text-xs uppercase tracking-[0.18em] text-stone-300">anos</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm">
+                <p class="text-2xl font-black text-amber-300">4.9</p>
+                <p class="mt-1 text-xs uppercase tracking-[0.18em] text-stone-300">avaliação</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3 backdrop-blur-sm">
+                <p class="text-2xl font-black text-amber-300">250+</p>
+                <p class="mt-1 text-xs uppercase tracking-[0.18em] text-stone-300">reservas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-gradient-to-r from-red-700 via-red-600 to-amber-500 px-4 py-5 text-white shadow-lg shadow-red-200/50">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-center md:flex-row md:text-left">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-red-100">Promoção exclusiva</p>
+            <h2 class="mt-1 text-2xl font-black">15% OFF no jantar de segunda a quinta</h2>
+          </div>
+          <a href="./pedido.html" class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-bold text-red-700 transition hover:bg-stone-100">Fazer pedido</a>
+        </div>
+      </section>
+
+      <section id="menu" class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.3em] text-red-600">Menu destaque</p>
+          <h2 class="mt-4 text-3xl font-black text-stone-900 sm:text-4xl">Receitas pensadas para encantar</h2>
+        </div>
+
+        <div class="mb-8 flex flex-wrap items-center justify-center gap-3">
+          <button type="button" class="menu-tab active rounded-full border border-red-200 bg-red-600 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-red-500" data-filter="all">Todos</button>
+          <button type="button" class="menu-tab rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-stone-700 transition hover:border-red-200 hover:text-red-600" data-filter="pizza">Pizzas</button>
+          <button type="button" class="menu-tab rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-stone-700 transition hover:border-red-200 hover:text-red-600" data-filter="massa">Massas</button>
+          <button type="button" class="menu-tab rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-stone-700 transition hover:border-red-200 hover:text-red-600" data-filter="salada">Saladas</button>
+          <button type="button" class="menu-tab rounded-full border border-stone-200 bg-white px-4 py-2 text-sm font-semibold text-stone-700 transition hover:border-red-200 hover:text-red-600" data-filter="sobremesa">Sobremesas</button>
+        </div>
+
+        <div id="menuGrid" class="grid gap-8 md:grid-cols-3">
+          <article class="menu-card reveal group overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_70px_-28px_rgba(153,27,27,0.45)]" data-category="pizza">
+            <img src="img/pexels-aabouden-yassir-2163228451-38795702.jpg" alt="Pizza artesanal" class="h-64 w-full object-cover" />
+            <div class="p-6">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <h3 class="text-2xl font-bold text-stone-900">Pizza Especial</h3>
+                <span class="rounded-full bg-red-50 px-2.5 py-1 text-sm font-bold text-red-600">R$ 39,90</span>
+              </div>
+              <p class="text-base leading-7 text-stone-600">
+                Massa artesanal, molho de tomate fresco e ingredientes selecionados para um sabor intenso.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card reveal group overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_70px_-28px_rgba(153,27,27,0.45)]" data-category="massa">
+            <img src="img/pexels-nour-alhoda-2151678059-32535025.jpg" alt="Massa italiana" class="h-64 w-full object-cover" />
+            <div class="p-6">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <h3 class="text-2xl font-bold text-stone-900">Massa Italiana</h3>
+                <span class="rounded-full bg-red-50 px-2.5 py-1 text-sm font-bold text-red-600">R$ 29,90</span>
+              </div>
+              <p class="text-base leading-7 text-stone-600">
+                Molho caseiro, ervas aromáticas e textura perfeita para uma experiência clássica.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card reveal group overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_70px_-28px_rgba(153,27,27,0.45)]" data-category="salada">
+            <img src="img/pexels-aleson-padilha-945919991-33323274.jpg" alt="Salada gourmet" class="h-64 w-full object-cover" />
+            <div class="p-6">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <h3 class="text-2xl font-bold text-stone-900">Salada Gourmet</h3>
+                <span class="rounded-full bg-red-50 px-2.5 py-1 text-sm font-bold text-red-600">R$ 24,90</span>
+              </div>
+              <p class="text-base leading-7 text-stone-600">
+                Ingredientes frescos, crocância e equilíbrio perfeito para uma refeição leve e sofisticada.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card reveal group overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_70px_-28px_rgba(153,27,27,0.45)]" data-category="massa">
+            <img src="img/pexels-antonio-lorenzana-bermejo-353570724-18090414.jpg" alt="Risoto artesanal" class="h-64 w-full object-cover" />
+            <div class="p-6">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <h3 class="text-2xl font-bold text-stone-900">Risoto Artesanal</h3>
+                <span class="rounded-full bg-red-50 px-2.5 py-1 text-sm font-bold text-red-600">R$ 34,90</span>
+              </div>
+              <p class="text-base leading-7 text-stone-600">
+                Cremoso, aromático e finalizado com ervas frescas e queijo premium.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card reveal group overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_70px_-28px_rgba(153,27,27,0.45)]" data-category="sobremesa">
+            <img src="img/pexels-aleson-padilha-945919991-33323274.jpg" alt="Tiramisu" class="h-64 w-full object-cover" />
+            <div class="p-6">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <h3 class="text-2xl font-bold text-stone-900">Tiramisu Clássico</h3>
+                <span class="rounded-full bg-red-50 px-2.5 py-1 text-sm font-bold text-red-600">R$ 18,90</span>
+              </div>
+              <p class="text-base leading-7 text-stone-600">
+                Camadas leves de café, mascarpone e cacau para uma finalização irresistível.
+              </p>
+            </div>
+          </article>
+
+          <article class="menu-card reveal group overflow-hidden rounded-3xl bg-white shadow-[0_20px_60px_-30px_rgba(15,23,42,0.35)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_25px_70px_-28px_rgba(153,27,27,0.45)]" data-category="pizza">
+            <img src="img/pexels-aabouden-yassir-2163228451-38795702.jpg" alt="Pizza gourmet" class="h-64 w-full object-cover" />
+            <div class="p-6">
+              <div class="mb-4 flex items-center justify-between gap-4">
+                <h3 class="text-2xl font-bold text-stone-900">Pizza Trufada</h3>
+                <span class="rounded-full bg-red-50 px-2.5 py-1 text-sm font-bold text-red-600">R$ 46,90</span>
+              </div>
+              <p class="text-base leading-7 text-stone-600">
+                Massa crocante, molho ao alho e trufas com toque elegante e sofisticado.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="bg-gradient-to-b from-stone-50 to-white py-20">
+        <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:px-8">
+          <div class="relative overflow-hidden rounded-[2rem] shadow-[0_25px_80px_-30px_rgba(15,23,42,0.5)]">
+            <img src="img/pexels-antonio-lorenzana-bermejo-353570724-18090414.jpg" alt="Chef preparando prato gourmet" class="h-full w-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-900/10 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <p class="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">Chef's selection</p>
+              <h3 class="mt-3 text-2xl font-black">O sabor do momento</h3>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.28em] text-red-600">Experiência gourmet</p>
+            <h2 class="text-3xl font-black text-stone-900 sm:text-4xl">Uma experiência que combina técnica, tradição e sofisticação.</h2>
+            <p class="text-base leading-8 text-stone-600">
+              Do preparo à apresentação, cada detalhe é pensado para surpreender. Em um ambiente refinado, o Sabor & Arte oferece momentos especiais para quem vive a gastronomia como arte.
+            </p>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+              <div class="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
+                <p class="text-2xl font-black text-amber-500">12</p>
+                <p class="mt-2 text-sm text-stone-600">pratos autorais</p>
+              </div>
+              <div class="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
+                <p class="text-2xl font-black text-amber-500">100%</p>
+                <p class="mt-2 text-sm text-stone-600">ingredientes frescos</p>
+              </div>
+              <div class="rounded-2xl border border-stone-200 bg-white p-4 shadow-sm">
+                <p class="text-2xl font-black text-amber-500">24h</p>
+                <p class="mt-2 text-sm text-stone-600">para reservar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sobre" class="bg-stone-900 py-20 text-white">
+        <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+          <div class="space-y-6">
+            <p class="text-sm font-semibold uppercase tracking-[0.28em] text-amber-300">Sobre nós</p>
+            <h2 class="text-3xl font-black sm:text-4xl">Uma história feita com paixão, técnica e acolhimento.</h2>
+            <p class="text-base leading-8 text-stone-300">
+              O Sabor & Arte nasceu da ideia de reunir a tradição da cozinha com um ambiente elegante e moderno.
+              Cada prato é preparado com cuidado, utilizando ingredientes frescos e técnicas que valorizam o sabor e a apresentação.
+            </p>
+            <p class="text-base leading-8 text-stone-300">
+              Nossa missão é proporcionar momentos inesquecíveis para famílias, casais e amigos, com atendimento que transforma a visita em experiência memorável.
+            </p>
+          </div>
+
+          <div class="overflow-hidden rounded-[2rem] shadow-[0_30px_80px_-40px_rgba(251,191,36,0.8)]">
+            <img src="img/pexels-antonio-lorenzana-bermejo-353570724-18090414.jpg" alt="Ambiente do restaurante" class="h-full w-full object-cover" />
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-red-600">Por que escolher</p>
+          <h2 class="mt-4 text-3xl font-black text-stone-900 sm:text-4xl">Qualidade em todos os detalhes</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="rounded-3xl border border-stone-200 bg-white p-7 shadow-sm">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl">🍽️</div>
+            <h3 class="text-xl font-bold text-stone-900">Cozinha premium</h3>
+            <p class="mt-3 text-base leading-7 text-stone-600">
+              Pratos preparados com ingredientes frescos e técnicas refinadas para um sabor memorável.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-stone-200 bg-white p-7 shadow-sm">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-red-100 text-2xl">✨</div>
+            <h3 class="text-xl font-bold text-stone-900">Ambiente acolhedor</h3>
+            <p class="mt-3 text-base leading-7 text-stone-600">
+              Espaço pensado para momentos especiais, com decoração elegante e clima sofisticado.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-stone-200 bg-white p-7 shadow-sm">
+            <div class="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-100 text-2xl">🤝</div>
+            <h3 class="text-xl font-bold text-stone-900">Atendimento exclusivo</h3>
+            <p class="mt-3 text-base leading-7 text-stone-600">
+              Nossa equipe está preparada para cuidar de cada detalhe e tornar sua visita especial.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-stone-100 py-20">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-10 text-center">
+            <p class="text-sm font-semibold uppercase tracking-[0.28em] text-red-600">Nossa cozinha</p>
+            <h2 class="mt-4 text-3xl font-black text-stone-900 sm:text-4xl">Um ambiente feito para momentos memoráveis</h2>
+          </div>
+
+          <div class="grid gap-5 md:grid-cols-3">
+            <img src="img/pexels-antonio-lorenzana-bermejo-353570724-18090414.jpg" alt="Ambiente do restaurante 1" class="h-72 w-full rounded-[2rem] object-cover shadow-lg" />
+            <img src="img/pexels-aabouden-yassir-2163228451-38795702.jpg" alt="Prato em destaque 1" class="h-72 w-full rounded-[2rem] object-cover shadow-lg" />
+            <img src="img/pexels-nour-alhoda-2151678059-32535025.jpg" alt="Prato em destaque 2" class="h-72 w-full rounded-[2rem] object-cover shadow-lg" />
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-red-600">Galeria</p>
+          <h2 class="mt-4 text-3xl font-black text-stone-900 sm:text-4xl">Um ambiente pensado para memorizar cada instante</h2>
+        </div>
+
+        <div class="gallery-wrapper relative overflow-hidden rounded-[2rem] bg-white p-3 shadow-[0_25px_80px_-30px_rgba(15,23,42,0.35)]">
+          <div class="gallery-track flex transition-transform duration-500 ease-out">
+            <div class="gallery-slide min-w-full">
+              <img src="img/pexels-antonio-lorenzana-bermejo-353570724-18090414.jpg" alt="Ambiente do restaurante" class="h-[420px] w-full rounded-[1.5rem] object-cover" />
+            </div>
+            <div class="gallery-slide min-w-full">
+              <img src="img/pexels-aabouden-yassir-2163228451-38795702.jpg" alt="Prato premium" class="h-[420px] w-full rounded-[1.5rem] object-cover" />
+            </div>
+            <div class="gallery-slide min-w-full">
+              <img src="img/pexels-nour-alhoda-2151678059-32535025.jpg" alt="Massa em destaque" class="h-[420px] w-full rounded-[1.5rem] object-cover" />
+            </div>
+          </div>
+
+          <button type="button" class="gallery-btn prev absolute left-6 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-stone-900/60 p-3 text-white transition hover:bg-stone-900" aria-label="Slide anterior">←</button>
+          <button type="button" class="gallery-btn next absolute right-6 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-stone-900/60 p-3 text-white transition hover:bg-stone-900" aria-label="Próximo slide">→</button>
+
+          <div class="mt-5 flex items-center justify-center gap-2">
+            <button type="button" class="gallery-dot h-3 w-3 rounded-full bg-red-600 transition-all duration-300" aria-label="Exibir slide 1"></button>
+            <button type="button" class="gallery-dot h-3 w-3 rounded-full bg-stone-300 transition-all duration-300" aria-label="Exibir slide 2"></button>
+            <button type="button" class="gallery-dot h-3 w-3 rounded-full bg-stone-300 transition-all duration-300" aria-label="Exibir slide 3"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-10 text-center">
+          <p class="text-sm font-semibold uppercase tracking-[0.28em] text-red-600">Avaliações</p>
+          <h2 class="mt-4 text-3xl font-black text-stone-900 sm:text-4xl">O que nossos clientes dizem</h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="rounded-[2rem] border border-stone-200 bg-white p-7 shadow-sm">
+            <div class="mb-4 text-amber-400">★★★★★</div>
+            <p class="text-base leading-7 text-stone-600">
+              “Ambiente incrível, comida impecável e atendimento extremamente acolhedor. Foi uma experiência memorável.”
+            </p>
+            <div class="mt-6 border-t border-stone-200 pt-4">
+              <p class="font-bold text-stone-900">Marina L.</p>
+              <p class="text-sm text-stone-500">Cliente recorrente</p>
+            </div>
+          </article>
+
+          <article class="rounded-[2rem] border border-stone-200 bg-white p-7 shadow-sm">
+            <div class="mb-4 text-amber-400">★★★★★</div>
+            <p class="text-base leading-7 text-stone-600">
+              “A qualidade dos pratos e a atenção ao detalhe fazem valer cada visita. Ótimo lugar para comemorar.”
+            </p>
+            <div class="mt-6 border-t border-stone-200 pt-4">
+              <p class="font-bold text-stone-900">Carlos P.</p>
+              <p class="text-sm text-stone-500">Aniversário em família</p>
+            </div>
+          </article>
+
+          <article class="rounded-[2rem] border border-stone-200 bg-white p-7 shadow-sm">
+            <div class="mb-4 text-amber-400">★★★★★</div>
+            <p class="text-base leading-7 text-stone-600">
+              “Sabor refinado, ambiente sofisticado e equipe muito atenciosa. Sem dúvida um restaurante especial.”
+            </p>
+            <div class="mt-6 border-t border-stone-200 pt-4">
+              <p class="font-bold text-stone-900">Beatriz M.</p>
+              <p class="text-sm text-stone-500">Jantar romântico</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="bg-stone-900 py-16 text-white">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 text-center sm:px-6 lg:flex-row lg:text-left lg:px-8">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.28em] text-amber-300">Reserve seu momento</p>
+            <h2 class="mt-3 text-3xl font-black">Faça uma reserva e viva uma experiência inesquecível</h2>
+          </div>
+          <button id="btnReservaFooter" type="button" class="inline-flex items-center justify-center rounded-full bg-amber-400 px-7 py-3.5 text-base font-bold text-stone-900 transition hover:bg-amber-300">
+            Reservar mesa
+          </button>
+        </div>
+      </section>
+
+      <section id="contato" class="bg-gradient-to-br from-red-600 to-red-800 py-20 text-white">
+        <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-[0.28em] text-red-100">Contato</p>
+            <h2 class="mt-4 text-3xl font-black sm:text-4xl">Vamos criar uma experiência gastronômica inesquecível?</h2>
+            <div class="mt-8 space-y-4 text-base text-red-50">
+              <p>📍 Rua das Flores, 245 - Centro</p>
+              <p>📞 (11) 3456-7890</p>
+              <p>✉️ contato@saborearte.com.br</p>
+            </div>
+          </div>
+
+          <form id="formContato" class="rounded-[2rem] bg-white p-6 text-stone-800 shadow-2xl sm:p-8">
+            <div class="grid gap-5 sm:grid-cols-2">
+              <label class="block text-sm font-medium text-stone-700 sm:col-span-1">
+                Nome
+                <input type="text" placeholder="Seu nome" class="mt-2 w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 outline-none transition focus:border-red-400 focus:bg-white" />
+              </label>
+              <label class="block text-sm font-medium text-stone-700 sm:col-span-1">
+                E-mail
+                <input type="email" placeholder="seu@email.com" class="mt-2 w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 outline-none transition focus:border-red-400 focus:bg-white" />
+              </label>
+              <label class="block text-sm font-medium text-stone-700 sm:col-span-2">
+                Mensagem
+                <textarea rows="4" placeholder="Como podemos ajudar?" class="mt-2 w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 outline-none transition focus:border-red-400 focus:bg-white"></textarea>
+              </label>
+            </div>
+            <button type="submit" class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-red-600 px-6 py-3.5 text-base font-bold text-white transition hover:bg-red-500">
+              Enviar mensagem
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-stone-950 py-6 text-center text-sm text-stone-300">
+      <p>&copy; 2026 Sabor & Arte. Todos os direitos reservados.</p>
     </footer>
-  
-    <!-- Modal de Reserva -->
-    <div id="modalReserva" class="fixed inset-0 bg-black bg-opacity-50 hidden [&:not(.hidden)]:flex justify-center items-center">
-      <div class="bg-white p-8 rounded-lg shadow-lg w-96">
-        <h3 class="text-2xl font-bold mb-4">Reservar Mesa</h3>
-        <form class="flex flex-col gap-4">
-          <input type="text" placeholder="Seu Nome" class="p-3 border rounded-lg">
-          <input type="number" placeholder="Número de Pessoas" class="p-3 border rounded-lg">
-          <input type="date" class="p-3 border rounded-lg">
-          <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700">Confirmar</button>
+
+    <div id="modalReserva" class="fixed inset-0 z-[60] hidden items-center justify-center bg-stone-950/70 px-4">
+      <div class="w-full max-w-md rounded-[2rem] bg-white p-7 shadow-2xl">
+        <div class="mb-6 flex items-center justify-between gap-4">
+          <h3 class="text-2xl font-black text-stone-900">Reservar mesa</h3>
+          <button id="btnFechar" type="button" class="rounded-full bg-stone-100 p-2 text-stone-500 transition hover:bg-stone-200 hover:text-stone-800" aria-label="Fechar modal">
+            ✕
+          </button>
+        </div>
+
+        <form id="formReserva" class="space-y-4">
+          <label class="block text-sm font-medium text-stone-700">
+            Nome
+            <input type="text" placeholder="Seu nome" class="mt-2 w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 outline-none transition focus:border-red-400 focus:bg-white" required />
+          </label>
+          <label class="block text-sm font-medium text-stone-700">
+            Número de pessoas
+            <input type="number" min="1" max="12" placeholder="2" class="mt-2 w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 outline-none transition focus:border-red-400 focus:bg-white" required />
+          </label>
+          <label class="block text-sm font-medium text-stone-700">
+            Data
+            <input type="date" class="mt-2 w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 outline-none transition focus:border-red-400 focus:bg-white" required />
+          </label>
+          <button type="submit" class="inline-flex w-full items-center justify-center rounded-full bg-red-600 px-6 py-3.5 text-base font-bold text-white transition hover:bg-red-500">
+            Confirmar reserva
+          </button>
         </form>
-        <button id="btnFechar" class="mt-4 text-gray-600 hover:text-black">Fechar</button>
       </div>
     </div>
-  <script src="script.js"></script>
-</body>
+
+    <script src="script.js"></script>
+  </body>
 </html>

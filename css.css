@@ -1,1 +1,80 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: rgba(251, 191, 36, 0.35);
+  color: #1c1917;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: radial-gradient(circle at top, rgba(251, 191, 36, 0.08), transparent 35%);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-card {
+  display: block;
+}
+
+.menu-card.hidden {
+  display: none;
+}
+
+.gallery-track {
+  will-change: transform;
+}
+
+.gallery-dot {
+  border: 0;
+  cursor: pointer;
+}
+
+.gallery-btn {
+  cursor: pointer;
+}
+
+.order-item input {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.order-item input::-webkit-outer-spin-button,
+.order-item input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
