@@ -78,3 +78,9 @@ As formas de pagamento (Pix, cartão e dinheiro) estão implementadas como sele�
 ## Publicação
 
 O projeto é estático e pode ser publicado em GitHub Pages, Netlify, Vercel ou qualquer servidor que entregue arquivos HTML, CSS, JavaScript e imagens.
+
+## URL pública
+
+Com o GitHub Pages habilitado, a publicação fica disponível em:
+
+https://francofrancojuniordwsouza-tech.github.io/tailwindcss-1/
